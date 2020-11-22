@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href='/static/style.css' />
+  <script src="/static/script.js"></script>
+  <meta http-equiv="refresh" content="30" >
+</head>
+
+<body onload="startTime(), move()">
+
+<div class="container">
+    <div id="box1">
+    <marquee behavior="scroll" direction="left">hier kommt noch ein toller scrolling text... </marquee>
+    </div>
+    <div id="box2">
+    </div>
+    <div id="box3">
+    <div class="progress">
+    <div id="myProgress">
+    <div id="myBar"></div>
+    </div>
+    </div>
+    </div>
+      <table id="table">
+      <tr>
+      <th>Linie</th>
+      <th>Nach</th>
+      <th>Status</th>
+      </tr>
+      {% for bahn in Trains %}
+      <tr>
+      <td>{{ bahn.line }}</td>
+      <td>{{ bahn.end }}</td>
+      <td>{{ (bahn.remaining / 60)|int }} min</td>
+      </tr>
+      {% endfor %}
+      </table>
+
+</div>
+
+</body>
+
+</html>
